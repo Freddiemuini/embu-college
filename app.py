@@ -6,9 +6,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'embu_college_secret_key_2024')
-app.config['ADMIN_USERNAME'] = os.environ.get('ADMIN_USERNAME', 'admin')
-app.config['ADMIN_PASSWORD'] = os.environ.get('ADMIN_PASSWORD', 'admin123')
+app.secret_key = 'embu_college_secret_key_2024'
 
 # Data files (simple JSON storage for demo)
 DATA_DIR = 'data'
@@ -226,7 +224,7 @@ def alumni():
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
     if request.method == 'POST':
-        if request.form.get('username') == app.config['ADMIN_USERNAME'] and request.form.get('password') == app.config['ADMIN_PASSWORD']:
+        if request.form.get('username') == 'admin' and request.form.get('password') == 'admin123':
             session['admin_logged_in'] = True
             return redirect(url_for('admin_dashboard'))
         flash('Invalid credentials', 'error')
