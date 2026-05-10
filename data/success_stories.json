@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Mary Wanjiku",
+    "course": "ICT Diploma",
+    "story": "Now a software engineer at Safaricom"
+  },
+  {
+    "id": 2,
+    "name": "Peter Kamau",
+    "course": "Automotive",
+    "story": "Opened own garage employing 5 people"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Diploma in ICT",
+    "category": "ICT",
+    "duration": "2 years",
+    "fee": 45000,
+    "description": "Software development, networking, database management"
+  },
+  {
+    "id": 2,
+    "name": "Certificate in Business Management",
+    "category": "Business",
+    "duration": "1 year",
+    "fee": 35000,
+    "description": "Accounting, marketing, entrepreneurship"
+  },
+  {
+    "id": 3,
+    "name": "Diploma in Engineering (Civil)",
+    "category": "Engineering",
+    "duration": "3 years",
+    "fee": 55000,
+    "description": "Structural design, construction management"
+  },
+  {
+    "id": 4,
+    "name": "Certificate in Hospitality",
+    "category": "Hospitality",
+    "duration": "1 year",
+    "fee": 38000,
+    "description": "Food production, front office, housekeeping"
+  },
+  {
+    "id": 5,
+    "name": "Diploma in Automotive Engineering",
+    "category": "Automotive",
+    "duration": "3 years",
+    "fee": 52000,
+    "description": "Vehicle diagnostics, repair, maintenance"
+  },
+  {
+    "id": 6,
+    "name": "Certificate in Beauty Therapy",
+    "category": "Beauty",
+    "duration": "1 year",
+    "fee": 32000,
+    "description": "Makeup, skincare, salon management"
+  }
+]

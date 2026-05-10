@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Student Login{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-login">
+    <div class="container">
+        <div class="hero-copy hero-copy-login">
+            <p class="section-subtitle">Secure access</p>
+            <h1>Student Portal Login</h1>
+            <p class="section-description">Access your dashboard, course updates, application status and campus resources from one secure place.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light-section login-section">
+    <div class="container login-container">
+        <div class="login-card">
+            <div class="login-card-side login-card-info">
+                <div>
+                    <h2>Welcome back</h2>
+                    <p>Enter your email and password to continue to your student dashboard. Keep your credentials safe and contact support if you need help.</p>
+                </div>
+                <div class="login-stats">
+                    <div>
+                        <strong>120+</strong>
+                        <span>Courses available</span>
+                    </div>
+                    <div>
+                        <strong>3,500+</strong>
+                        <span>Active students</span>
+                    </div>
+                </div>
+            </div>
+            <div class="login-card-side login-card-form">
+                <h2>Student Login</h2>
+                <form method="POST" action="{{ url_for('student_login') }}">
+                    <div class="form-group"><label for="student-email">Email address</label><input type="email" id="student-email" name="email" placeholder="Email address" required></div>
+                    <div class="form-group"><label for="student-password">Password</label><input type="password" id="student-password" name="password" placeholder="Password" required></div>
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </form>
+                <p class="mt-1 login-note">Demo: john@example.com / student123</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

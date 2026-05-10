@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Manage Notices{% endblock %}
+{% block content %}
+<section class="admin-section-padding">
+    <div class="container">
+        <h2>Manage Notices</h2>
+        <form method="POST">
+            <div class="form-group"><label for="notice-title">Title</label><input type="text" id="notice-title" name="title" placeholder="Title" required></div>
+            <div class="form-group"><label for="notice-content">Content</label><textarea id="notice-content" name="content" placeholder="Content" required></textarea></div>
+            <button type="submit" class="btn btn-primary">Add Notice</button>
+        </form>
+        <div class="notice-board mt-2">
+            {% for notice in notices %}
+            <div><strong>{{ notice.title }}</strong> - {{ notice.date }}<br>{{ notice.content }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

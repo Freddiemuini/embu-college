@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Downloads{% endblock %}
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <h2>Downloadable Resources</h2>
+        <div class="grid">
+            {% for file in files %}
+            <div class="card"><div class="card-content"><i class="fas fa-file-pdf icon-md"></i><h3>{{ file.name }}</h3><p>{{ file.size }}</p><a href="#" class="btn btn-outline">Download</a></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Manage News{% endblock %}
+{% block content %}
+<section class="admin-section-padding">
+    <div class="container">
+        <h2>Manage News</h2>
+        <form method="POST" class="mb-2">
+            <div class="form-group"><label for="news-title">Title</label><input type="text" id="news-title" name="title" placeholder="Title" required></div>
+            <div class="form-group"><label for="news-content">Content</label><textarea id="news-content" name="content" placeholder="Content" required></textarea></div>
+            <button type="submit" class="btn btn-primary">Add News</button>
+        </form>
+        <div class="grid">
+            {% for item in news_items %}
+            <div class="card"><div class="card-content"><h3>{{ item.title }}</h3><p>{{ item.date }}</p><p>{{ item.content }}</p><a href="{{ url_for('admin_news_delete', news_id=item.id) }}" class="btn btn-outline" onclick="return confirm('Delete?')">Delete</a></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

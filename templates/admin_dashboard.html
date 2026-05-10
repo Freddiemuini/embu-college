@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<section class="admin-section-padding">
+    <div class="container">
+        <h2>Admin Dashboard</h2>
+        <div class="admin-stats">
+            <div class="stat-card"><h3>{{ students|length }}</h3><p>Students</p></div>
+            <div class="stat-card"><h3>{{ applications|length }}</h3><p>Applications</p></div>
+            <div class="stat-card"><h3>{{ courses|length }}</h3><p>Courses</p></div>
+            <div class="stat-card"><h3>{{ news_items|length }}</h3><p>News</p></div>
+        </div>
+        <div class="grid">
+            <a href="{{ url_for('admin_news') }}" class="btn btn-primary">Manage News</a>
+            <a href="{{ url_for('admin_courses') }}" class="btn btn-primary">Manage Courses</a>
+            <a href="{{ url_for('admin_applications') }}" class="btn btn-primary">View Applications</a>
+            <a href="{{ url_for('admin_notices') }}" class="btn btn-primary">Manage Notices</a>
+            <a href="{{ url_for('admin_gallery') }}" class="btn btn-primary">Manage Gallery</a>
+            <a href="{{ url_for('admin_logout') }}" class="btn btn-outline">Logout</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

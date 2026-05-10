@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embu College - {% block title %}Skills to go places{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>Embu College</h1>
+                <p>Skills to go places</p>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('courses') }}">Courses</a></li>
+                <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
+                <li><a href="{{ url_for('student_portal') }}">Student Portal</a></li>
+                <li><a href="{{ url_for('news') }}">News</a></li>
+                <li><a href="{{ url_for('departments') }}">Departments</a></li>
+                <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('career_services') }}">Careers</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="container">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Embu College</h4>
+                    <p>Shaping Character. Inspiring Excellence.</p>
+                    <p>Est. 1995 | Leading tertiary institution in Kenya</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('admissions') }}">Apply Now</a></li>
+                        <li><a href="{{ url_for('downloads') }}">Downloads</a></li>
+                        <li><a href="{{ url_for('alumni') }}">Alumni</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-envelope"></i> info@embucollege.ac.ke</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Embu Town, Kenya</p>
+                </div>
+                <div>
+                    <h4>Follow Us</h4>
+                    <div class="flex-gap">
+                        <a href="#" class="text-white" title="Follow us on Facebook"><i class="fab fa-facebook fa-2x"></i></a>
+                        <a href="#" class="text-white" title="Follow us on Twitter"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-white" title="Follow us on Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Embu College. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="whatsapp-chat" onclick="window.open('https://wa.me/254700123456', '_blank')">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

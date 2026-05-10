@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <h1 data-aos="fade-up">Embu College</h1>
+        <p class="tagline" data-aos="fade-up" data-aos-delay="200">Skills to go places</p>
+        <p data-aos="fade-up" data-aos-delay="300">Shaping Character. Inspiring Excellence.</p>
+        <div class="hero-buttons" data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ url_for('admissions') }}" class="btn btn-primary">Apply Now</a>
+            <a href="{{ url_for('courses') }}" class="btn btn-outline btn-white">Explore Courses</a>
+        </div>
+    </div>
+</section>
+
+<div class="ticker">
+    <div class="ticker-content" id="liveTicker">📢 Loading announcements...</div>
+</div>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Why Choose Embu College?</h2>
+        </div>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <div class="card-content">
+                    <i class="fas fa-chalkboard-user icon-lg"></i>
+                    <h3>Practical Training</h3>
+                    <p>Hands-on learning with modern equipment and facilities.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-content">
+                    <i class="fas fa-graduation-cap icon-lg"></i>
+                    <h3>Industry Connections</h3>
+                    <p>Strong partnerships with leading employers for job placements.</p>
+                </div>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-content">
+                    <i class="fas fa-globe icon-lg"></i>
+                    <h3>Global Recognition</h3>
+                    <p>Qualifications recognized internationally.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Featured Programmes</h2>
+        </div>
+        <div class="grid">
+            {% for course in courses %}
+            <div class="card" data-aos="fade-up">
+                <div class="card-content">
+                    <h3>{{ course.name }}</h3>
+                    <p><i class="fas fa-clock"></i> {{ course.duration }}</p>
+                    <p><i class="fas fa-money-bill-wave"></i> KES {{ "{:,}".format(course.fee) }}</p>
+                    <a href="/course/{{ course.id }}" class="btn btn-outline mt-1">Learn More →</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="{{ url_for('courses') }}" class="btn btn-primary">View All Courses</a>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Admission Intakes</h2>
+        </div>
+        <div class="grid">
+            <div class="card"><div class="card-content"><h3>January Intake</h3><p>Applications: Oct - Dec</p></div></div>
+            <div class="card"><div class="card-content"><h3>May Intake</h3><p>Applications: Feb - April</p></div></div>
+            <div class="card"><div class="card-content"><h3>September Intake</h3><p>Applications: June - Aug</p></div></div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

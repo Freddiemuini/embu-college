@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title"><h2>Our Programmes</h2></div>
+        
+        <input type="text" id="courseSearch" placeholder="🔍 Search courses..." class="search-box">
+        <div id="searchResults"></div>
+        
+        <div id="allCourses">
+            <div class="grid">
+                {% for course in courses %}
+                <div class="card">
+                    <div class="card-content">
+                        <span class="badge">{{ course.category }}</span>
+                        <h3>{{ course.name }}</h3>
+                        <p>{{ course.duration }} | KES {{ "{:,}".format(course.fee) }}</p>
+                        <a href="/course/{{ course.id }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Computer Lab Session",
+    "image": "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=1100"
+  },
+  {
+    "id": 2,
+    "title": "Engineering Workshop",
+    "image": "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1100"
+  },
+  {
+    "id": 3,
+    "title": "Business Class",
+    "image": "https://images.pexels.com/photos/3807686/pexels-photo-3807686.jpeg?auto=compress&cs=tinysrgb&w=1100"
+  }
+]

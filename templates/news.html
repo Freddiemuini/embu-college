@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}News & Events{% endblock %}
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="section-title"><h2>Latest News</h2></div>
+        <div class="grid">
+            {% for item in news_list %}
+            <div class="card"><div class="card-content"><h3>{{ item.title }}</h3><p class="text-muted">{{ item.date }}</p><p>{{ item.content }}</p></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

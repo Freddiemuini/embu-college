@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Admissions{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-admissions">
+    <div class="container">
+        <div class="hero-copy">
+            <p class="section-subtitle">Admissions open</p>
+            <h1>Start your future at Embu College</h1>
+            <p class="section-description">Apply now for our upcoming intake periods and join a community built on practical skills, mentorship, and career opportunity.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light-section admissions-section">
+    <div class="container">
+        <div class="admissions-grid">
+            <div class="admissions-panel" data-aos="fade-right" data-aos-duration="800">
+                <h2>Why apply with us?</h2>
+                <ul class="admissions-list">
+                    <li><strong>Flexible intake options</strong><span>May, September and January intakes.</span></li>
+                    <li><strong>Practical learning</strong><span>Hands-on training in modern labs and workshops.</span></li>
+                    <li><strong>Career support</strong><span>Guidance, internships and placement resources.</span></li>
+                    <li><strong>Official admission</strong><span>Recognized certificates and diplomas.</span></li>
+                </ul>
+                <div class="admissions-quickfacts">
+                    <div><strong>5</strong><span>Faculties</span></div>
+                    <div><strong>3,500+</strong><span>Students</span></div>
+                    <div><strong>25+</strong><span>Programs</span></div>
+                </div>
+            </div>
+            <div class="admissions-card" data-aos="fade-left" data-aos-duration="800">
+                <div class="card-content">
+                    <h2>Apply Online</h2>
+                    <p class="section-description">Complete the form below and our admissions team will reach out with next steps.</p>
+                    <form method="POST" action="{{ url_for('apply') }}">
+                        <div class="form-group"><label for="apply-fullname">Full Name</label><input type="text" id="apply-fullname" name="fullname" placeholder="Full Name" required class="form-control"></div>
+                        <div class="form-group"><label for="apply-email">Email address</label><input type="email" id="apply-email" name="email" placeholder="Email address" required class="form-control"></div>
+                        <div class="form-group"><label for="apply-phone">Phone number</label><input type="tel" id="apply-phone" name="phone" placeholder="Phone number" required class="form-control"></div>
+                        <div class="form-group"><label for="apply-qualification">Highest Qualification</label><input type="text" id="apply-qualification" name="qualification" placeholder="Highest Qualification" required class="form-control"></div>
+                        <div class="form-group"><label for="course">Select course</label><select id="course" name="course" class="form-control" required><option value="">-- Select a Course --</option><option>Diploma in ICT</option><option>Certificate in Business Management</option><option>Diploma in Engineering (Civil)</option><option>Certificate in Hospitality</option><option>Diploma in Automotive Engineering</option><option>Certificate in Beauty Therapy</option></select></div>
+                        <div class="form-group"><label for="apply-message">Tell us why you want to join Embu College</label><textarea id="apply-message" name="message" rows="4" placeholder="Tell us why you want to join Embu College" class="form-control"></textarea></div>
+                        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+                    </form>
+                    <p class="mt-1 login-note">Need help? Contact admissions at <strong>info@embucollege.ac.ke</strong></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

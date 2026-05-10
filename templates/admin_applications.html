@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Applications{% endblock %}
+{% block content %}
+<section class="admin-section-padding">
+    <div class="container">
+        <h2>Student Applications</h2>
+        <div class="grid">
+            {% for app in applications %}
+            <div class="card"><div class="card-content"><h3>{{ app.fullname }}</h3><p>{{ app.email }} | {{ app.phone }}</p><p>Course: {{ app.course }}</p><p>Status: {{ app.status }}</p></div></div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

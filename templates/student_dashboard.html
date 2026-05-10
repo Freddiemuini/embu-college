@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+{% block title %}Student Dashboard{% endblock %}
+{% block content %}
+
+<!-- Welcome Header -->
+<section class="section-padding student-dashboard-hero">
+    <div class="container">
+        <div class="student-dashboard-welcome">
+            <div>
+                <h1>Welcome back, {{ student.fullname }}! 👋</h1>
+                <p>Dashboard • {{ student.course }}</p>
+            </div>
+            <div class="student-dashboard-date">
+                <p>Today's Date:</p>
+                <p id="currentDate"></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Stats Section -->
+<section class="section-padding student-stats-section">
+    <div class="container">
+        <div class="grid student-stats-grid">
+            <!-- Student ID Card -->
+            <div class="student-stat-card">
+                <p class="student-stat-label">Student ID</p>
+                <h3 class="student-stat-value">{{ student.student_id }}</h3>
+            </div>
+
+            <!-- Email Card -->
+            <div class="student-stat-card">
+                <p class="student-stat-label">Email</p>
+                <p class="student-stat-value email">{{ student.email }}</p>
+            </div>
+
+            <!-- Course Card -->
+            <div class="student-stat-card">
+                <p class="student-stat-label">Current Course</p>
+                <p class="student-stat-value email">{{ student.course }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Dashboard Grid -->
+<section class="section-padding">
+    <div class="container">
+        <div class="grid student-dashboard-main-grid">
+            
+            <!-- Academic Progress Card -->
+            <div class="student-dashboard-card">
+                <div class="student-dashboard-card-header">
+                    <div>📚</div>
+                    <h3>Academic Progress</h3>
+                </div>
+                <div class="progress-container">
+                    <p class="progress-label">Semester 1 Progress</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p class="progress-percentage">75% Complete</p>
+                </div>
+                <div class="gpa-container">
+                    <p class="gpa-label">Current GPA</p>
+                    <h4 class="gpa-value">3.8/4.0</h4>
+                </div>
+            </div>
+
+            <!-- Fee Management Card -->
+            <div class="student-dashboard-card">
+                <div class="student-dashboard-card-header">
+                    <div>💰</div>
+                    <h3>Fee Management</h3>
+                </div>
+                <div class="balance-warning">
+                    <p class="balance-label">Outstanding Balance</p>
+                    <h4 class="balance-amount">KES 15,000</h4>
+                </div>
+                <div class="fee-breakdown">
+                    <div class="fee-item">
+                        <p>Total Paid</p>
+                        <h4>KES 30,000</h4>
+                    </div>
+                    <div class="fee-item">
+                        <p>Total Due</p>
+                        <h4>KES 45,000</h4>
+                    </div>
+                </div>
+                <button id="mpesaPayBtn" class="mpesa-btn" data-student-id="{{ student.student_id }}">Pay via M-Pesa</button>
+            </div>
+
+            <!-- Attendance Card -->
+            <div class="student-dashboard-card">
+                <div class="student-dashboard-card-header">
+                    <div>✅</div>
+                    <h3>Attendance</h3>
+                </div>
+                <div class="attendance-circle">
+                    <div class="attendance-percentage">94%</div>
+                    <p>Attendance Rate</p>
+                </div>
+                <div class="gpa-container">
+                    <p class="attendance-status">✓ On Track</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions Section -->
+<section class="section-padding quick-actions-section">
+    <div class="container">
+        <h2 class="quick-actions-title">Quick Actions</h2>
+        <div class="grid quick-actions-grid">
+            <a href="/downloads" class="quick-action-card">
+                <div class="quick-action-icon">📥</div>
+                <h4 class="quick-action-title">Course Materials</h4>
+                <p class="quick-action-desc">Download resources</p>
+            </a>
+
+            <a href="/contact" class="quick-action-card">
+                <div class="quick-action-icon">💬</div>
+                <h4 class="quick-action-title">Support</h4>
+                <p class="quick-action-desc">Contact support team</p>
+            </a>
+
+            <a href="/news" class="quick-action-card">
+                <div class="quick-action-icon">📰</div>
+                <h4 class="quick-action-title">News & Updates</h4>
+                <p class="quick-action-desc">Latest announcements</p>
+            </a>
+
+            <a href="/career_services" class="quick-action-card">
+                <div class="quick-action-icon">🎯</div>
+                <h4 class="quick-action-title">Career Services</h4>
+                <p class="quick-action-desc">Explore opportunities</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Announcements Section -->
+<section class="section-padding announcements-section">
+    <div class="container">
+        <h2>📢 Recent Announcements</h2>
+        <div class="announcements-list">
+            <div class="announcement-item">
+                <h4 class="announcement-title">Mid-Semester Exams Schedule Released</h4>
+                <p class="announcement-text">Exams commence on 20th May 2026. Check your personal timetable on the portal.</p>
+            </div>
+
+            <div class="announcement-item library">
+                <h4 class="announcement-title">Library Hours Extended</h4>
+                <p class="announcement-text">During exam period, the library will be open until 8 PM daily to support your studies.</p>
+            </div>
+
+            <div class="announcement-item career">
+                <h4 class="announcement-title">Career Fair Coming Soon</h4>
+                <p class="announcement-text">Meet top employers and explore job opportunities on 25th May. Register now!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Logout Section -->
+<section class="section-padding logout-section">
+    <div class="container">
+        <a href="{{ url_for('student_logout') }}" class="logout-btn">Logout</a>
+    </div>
+</section>
+
+<script>
+// Display current date
+document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+});
+</script>
+
+{% endblock %}

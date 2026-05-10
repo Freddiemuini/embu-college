@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "fullname": "John Mwangi",
+    "email": "john@example.com",
+    "course": "Diploma in ICT",
+    "student_id": "E2024001",
+    "password": "scrypt:32768:8:1$7XnOjvoGGwEAbcwY$78bc53a44a8863c3174c297440d51e6dc11f6430f035619bb8f58c159dd1aa71c3055039fa127fb8d5a8ddb5638cdc64eed9866152b93fa6b60324b342b8f617"
+  }
+]

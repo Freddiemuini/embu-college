@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Departments{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-departments">
+    <div class="container">
+        <div class="hero-copy">
+            <p class="section-subtitle">Academic excellence</p>
+            <h1>Departments that shape careers</h1>
+            <p class="section-description">From technology and business to engineering and hospitality, our departments empower students with practical skills, mentorship, and industry-ready confidence.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light-section">
+    <div class="container">
+        <div class="section-title">
+            <p class="section-subtitle">Discover more</p>
+            <h2>Our Departments</h2>
+            <p class="section-description">Each department is built around real-world learning, modern facilities, and a supportive team of educators.</p>
+        </div>
+        <div class="grid dept-grid">
+            {% for dept in departments %}
+            <div class="card dept-card" data-aos="fade-up" data-aos-duration="800">
+                <div class="card-content">
+                    <div class="card-icon"><i class="{{ dept.icon }}"></i></div>
+                    <h3>{{ dept.name }}</h3>
+                    <p class="dept-meta">Head of Department</p>
+                    <p class="dept-hod">{{ dept.hod }}</p>
+                    <div class="dept-details">
+                        <span class="dept-pill">Staff {{ dept.staff }}</span>
+                        <span class="dept-pill">Courses {{ dept.courses }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

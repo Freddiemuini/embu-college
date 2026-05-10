@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Gallery{% endblock %}
+{% block content %}
+<section class="page-hero page-hero-gallery">
+    <div class="container">
+        <div class="hero-copy">
+            <p class="section-subtitle">Campus life</p>
+            <h1>Explore Embu College through our gallery</h1>
+            <p class="section-description">A glimpse of classrooms, workshops, student events and campus moments that make our college vibrant and welcoming.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-light-section">
+    <div class="container">
+        <div class="section-title">
+            <p class="section-subtitle">Photo highlights</p>
+            <h2>Campus Gallery</h2>
+            <p class="section-description">Browse recent campus moments and discover the learning environment, student energy, and facilities that shape every experience.</p>
+        </div>
+        <div class="grid gallery-grid">
+            {% for img in images %}
+            {% set image_url = img.image if img.image else 'https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=1100' %}
+            <div class="gallery-card" style="background-image: url(&quot;{{ image_url }}&quot;)" data-aos="fade-up" data-aos-duration="700">
+                <div class="gallery-card-overlay">
+                    <h3>{{ img.title }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
